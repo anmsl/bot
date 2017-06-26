@@ -1,0 +1,25 @@
+{
+  "name": "bot",
+  "scripts": {
+    "postdeploy": "web: java $JAVA_OPTS -jar sample-spring-boot-kitchensink/build/libs/sample-spring-boot-echo-*.jar --server.port=$PORT",
+    "pr-predestroy": "web: java $JAVA_OPTS -jar sample-spring-boot-kitchensink/build/libs/sample-spring-boot-echo-*.jar --server.port=$PORT"
+  },
+  "env": {
+    "LINE_BOT_CHANNEL_SECRET": {
+      "required": true
+    },
+    "LINE_BOT_CHANNEL_TOKEN": {
+      "required": true
+    }
+  },
+  "formation": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/gr"
+    }
+  ]
+}
